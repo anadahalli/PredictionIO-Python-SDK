@@ -217,7 +217,7 @@ class Client(object):
                                     (response.request, response.status,
                                      response.body))
 
-        # data = json.loads(response.body) # convert json string to dict
+        # data = json.loads(response.body.decode('utf-8')) # convert json string to dict
         return response.body
 
     def acreate_user(self, uid, params={}):
@@ -312,7 +312,7 @@ class Client(object):
                                     (response.request, response.status,
                                      response.body))
 
-        data = json.loads(response.body)  # convert json string to dict
+        data = json.loads(response.body.decode('utf-8'))  # convert json string to dict
         return data
 
     def adelete_user(self, uid):
@@ -449,7 +449,7 @@ class Client(object):
                                     (response.request, response.status,
                                      response.body))
 
-        data = json.loads(response.body)  # convert json string to dict
+        data = json.loads(response.body.decode('utf-8'))  # convert json string to dict
         if "pio_itypes" in data:
             # convert from list to tuple
             data["pio_itypes"] = tuple(data["pio_itypes"])
@@ -544,7 +544,7 @@ class Client(object):
                                        (response.request, response.status,
                                         response.body))
 
-        data = json.loads(response.body)  # convert json string to dict
+        data = json.loads(response.body.decode('utf-8'))  # convert json string to dict
         return data
 
     def aget_itemrec_topn(self, engine, n, params={}):
@@ -635,7 +635,7 @@ class Client(object):
                                        (response.request, response.status,
                                         response.body))
 
-        data = json.loads(response.body)  # convert json string to dict
+        data = json.loads(response.body.decode('utf-8'))  # convert json string to dict
         return data
 
     def aget_itemsim_topn(self, engine, iid, n, params={}):
@@ -704,7 +704,7 @@ class Client(object):
                                         (response.request, response.status,
                                          response.body))
 
-        data = json.loads(response.body)  # convert json string to dict
+        data = json.loads(response.body.decode('utf-8'))  # convert json string to dict
         return data
 
     def aget_itemrank_ranked(self, engine, iids, params={}):
